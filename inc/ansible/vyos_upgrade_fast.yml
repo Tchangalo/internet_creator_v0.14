@@ -15,6 +15,7 @@
     - name: Set image_dir based on release_type
       ansible.builtin.set_fact:
         image_dir: "{{ vyos_dir_rolling if release_type == 'rolling' else vyos_dir_stream }}"
+      run_once: true
 
     - name: Get latest VyOS ISO URL
       ansible.builtin.uri:

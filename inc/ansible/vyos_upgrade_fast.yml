@@ -25,11 +25,13 @@
         body_format: json
       register: data
       when: release_type == "rolling"
+      run_once: true
 
     - name: Extract the ISO URL from content
       ansible.builtin.set_fact:
         iso_url: "{{ (data.content | from_json)[0].url }}"
       when: release_type == "rolling"
+      run_once: true
 
     - name: Set ISO URL for stream release
       ansible.builtin.set_fact:
@@ -38,7 +40,8 @@
 
     - name: Set fact iso_name from URL
       ansible.builtin.set_fact:
-        iso_name: "{{ iso_url.split('/')[-1] }}" 
+        iso_name: "{{ iso_url.split('/')[-1] }}"
+      run_once: true
 
     - name: Check if latest VyOS image already exists (and download if not ...)
       ansible.builtin.stat:

@@ -324,7 +324,7 @@ Unproblematische CPU-Auslastung und niedrige Temperaturen meist zwischen 50 und 
 
 **i7-8700** (Kein Serial Mode)
 
-9 Router: Start Delay mindestens **5**
+9 Router: Start Delay mindestens **4**
 
 Geringe CPU-Auslastung: Erreicht kaum 80%, meistens zwischen 50% und 60%, aber sehr starke Erwärmung bei Upgrade und (Re-)Start auf bis zu 87 Grad wegen häufigem Turbo Boost der Taktrate auf 4,3 Mhz.
 

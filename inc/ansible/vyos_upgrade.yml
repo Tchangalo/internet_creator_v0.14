@@ -44,6 +44,7 @@
       ansible.builtin.stat:
         path: "{{ image_dir }}{{ iso_name }}"
       register: image_stat
+      run_once: true
 
     - name: Download latest VyOS image if it does not exist
       ansible.builtin.get_url:
@@ -58,6 +59,7 @@
       become: no
       vars:
         ansible_ssh_pass: "{{ ansible_password }}"
+      run_once: true
 
     - name: Installing latest VyOS image on system
       ansible.netcommon.cli_command:

@@ -44,6 +44,7 @@
       ansible.builtin.stat:
         path: "{{ image_dir }}{{ iso_name }}"
       register: image_stat
+      run_once: true
 
     - name: Download latest VyOS image if it does not exist
       ansible.builtin.get_url:
@@ -51,6 +52,7 @@
         dest: "{{ image_dir }}{{ iso_name }}"
         mode: '0644'
       when: not image_stat.stat.exists
+      run_once: true
 
     - name: Copying latest VyOS image to system via SCP
       shell: "scp {{ image_dir }}{{ iso_name }} {{ ansible_user }}@{{ ansible_host }}:/home/{{ ansible_user }}/{{ iso_name }}"

@@ -64,7 +64,6 @@
       become: no
       vars:
         ansible_ssh_pass: "{{ ansible_password }}"
-      run_once: true
 
     - name: Installing latest VyOS image on system
       ansible.netcommon.cli_command:
